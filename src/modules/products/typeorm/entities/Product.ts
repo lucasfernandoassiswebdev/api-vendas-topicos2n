@@ -1,8 +1,8 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
+// decorator -> padrão de projeto
 @Entity('products')
 class Product {
-
     @PrimaryGeneratedColumn('uuid')
     id: string
 
@@ -15,11 +15,12 @@ class Product {
     @Column('int')
     quantity: number
 
-    @CreateDateColumn({ name: 'created_at' })
-    createdAt: Date;
+    @CreateDateColumn()
+    created_at: Date
 
-    @CreateDateColumn({ name: 'updated_at' })
-    updatedAt: Date
+    @UpdateDateColumn()
+    updated_at: Date
+
 }
 
 export default Product

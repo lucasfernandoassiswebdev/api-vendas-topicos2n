@@ -1,8 +1,10 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class PostRefactoring1634991148646 implements MigrationInterface {
+export class CreateProducts1634991064287 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
+        //vamos criar a tabela products
+        // uma função assíncrona
         await queryRunner.createTable(new Table({
             name: 'products',
             columns: [
@@ -19,7 +21,7 @@ export class PostRefactoring1634991148646 implements MigrationInterface {
                 },
                 {
                     name: 'price',
-                    type: 'decimal'
+                    type: 'decimal',
                 },
                 {
                     name: 'quantity',
@@ -34,13 +36,16 @@ export class PostRefactoring1634991148646 implements MigrationInterface {
                     name: 'updated_at',
                     type: 'timestamp with time zone',
                     default: 'now()'
-                }
+                },
             ]
         }))
+
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+
         await queryRunner.dropTable('products')
+    
     }
 
 }
