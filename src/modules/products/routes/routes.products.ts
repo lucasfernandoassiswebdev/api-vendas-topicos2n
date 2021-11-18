@@ -1,9 +1,9 @@
 import { Router } from "express"
 import ProductController from "../controllers/ProductController"
 
-let productRouter = Router()
+const productRouter = Router()
 
-let productController = new ProductController()
+const productController = new ProductController()
 
 productRouter.get('/', productController.index)
 productRouter.get('/:id', productController.show)
